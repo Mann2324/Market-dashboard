@@ -56,9 +56,19 @@
 
   <!-- Chart Placeholder -->
   <section class="chart-section">
-    <h2>7 Day Trend</h2>
-    <canvas id="priceChart"></canvas>
+  <h2>7 Day Trend</h2>
+
+  <div class="chart-tabs">
+    <button onclick="loadChart('bitcoin')">Bitcoin</button>
+    <button onclick="loadChart('ethereum')">Ethereum</button>
+    <button onclick="loadChart('silver')">Silver</button>
+    <button onclick="loadChart('sensex')">Sensex</button>
+    <button onclick="loadChart('nifty')">Nifty</button>
+  </div>
+
+  <canvas id="priceChart"></canvas>
   </section>
+
 
   <!-- News Placeholder -->
   <section class="news">
