@@ -3,12 +3,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_AUTH_DOMAIN",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_STORAGE_BUCKET",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyBGNfuBGu_KvVeqgzFvaMR7RxyJYmav6LA",
+  authDomain: "million-fff50.firebaseapp.com",
+  projectId: "million-fff50",
+  storageBucket: "million-fff50.firebasestorage.app",
+  messagingSenderId: "153615000578",
+  appId: "1:153615000578:web:b97fb8f7271fcd379eb31b"
 };
 
 export const app = initializeApp(firebaseConfig);
