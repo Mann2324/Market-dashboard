@@ -1,62 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>21million</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="header">
     <div class="brand">21million</div>
-    <button id="themeToggle" class="icon-btn">
-      <i class="fa-solid fa-moon"></i>
-    </button>
+    <div class="actions">
+      <button class="icon-btn">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+    </div>
   </header>
 
-  <!-- Cards -->
-  <section class="cards">
-    <div class="card"><div class="label">Gold</div><div class="price skeleton"></div></div>
-    <div class="card"><div class="label">Silver</div><div class="price skeleton"></div></div>
-    <div class="card"><div class="label">Bitcoin</div><div class="price skeleton"></div></div>
-    <div class="card"><div class="label">Ethereum</div><div class="price skeleton"></div></div>
-    <div class="card"><div class="label">Sensex</div><div class="price skeleton"></div></div>
-    <div class="card"><div class="label">Nifty</div><div class="price skeleton"></div></div>
-  </section>
+  <!-- MARKET SNAPSHOT -->
+  <section class="section">
+    <h2 class="section-title">Market Snapshot</h2>
 
-  <!-- Chart -->
-  <section class="chart-section">
-    <h2>7 Day Trend</h2>
-    <div class="chart-tabs">
-      <button onclick="loadChart('bitcoin')">Bitcoin</button>
-      <button onclick="loadChart('ethereum')">Ethereum</button>
-      <button onclick="loadChart('silver')">Silver</button>
-      <button onclick="loadChart('sensex')">Sensex</button>
-      <button onclick="loadChart('nifty')">Nifty</button>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-title">Gold</div>
+        <div class="card-price">₹ 72,450</div>
+        <div class="card-change down">▼ ₹120</div>
+        <div class="card-sub">24K · 10g</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Silver</div>
+        <div class="card-price">₹ 89,120</div>
+        <div class="card-change up">▲ ₹340</div>
+        <div class="card-sub">1kg · Spot</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Bitcoin</div>
+        <div class="card-price">₹ 75,97,447</div>
+        <div class="card-change down">▼ 0.85%</div>
+        <div class="card-sub">Crypto · INR</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Ethereum</div>
+        <div class="card-price">₹ 2,51,111</div>
+        <div class="card-change down">▼ 1.12%</div>
+        <div class="card-sub">Crypto · INR</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Sensex</div>
+        <div class="card-price">72,410</div>
+        <div class="card-change up">▲ 0.42%</div>
+        <div class="card-sub">BSE</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Nifty</div>
+        <div class="card-price">21,945</div>
+        <div class="card-change down">▼ 0.18%</div>
+        <div class="card-sub">NSE</div>
+      </div>
+
     </div>
-    <canvas id="priceChart"></canvas>
   </section>
 
-  <!-- News -->
-  <section class="news">
-    <h2>Market News</h2>
-    <ul id="newsList">
-      <li>Loading latest news...</li>
-    </ul>
-  </section>
+  <!-- TREND -->
+  <section class="section">
+    <h2 class="section-title">7-Day Trend</h2>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="tabs">
+      <button class="tab active">Bitcoin</button>
+      <button class="tab">Ethereum</button>
+      <button class="tab">Sensex</button>
+      <button class="tab">Nifty</button>
+    </div>
+
+    <div
+      
