@@ -40,3 +40,23 @@ document.getElementById("news").innerHTML = `
   <div class="news-item">Silver demand rises in industrial sector</div>
   <div class="news-item">Markets cautious ahead of US data</div>
 `;
+.ticker-wrap {
+  background: #020617;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.ticker {
+  display: inline-block;
+  padding: 12px 0;
+  padding-left: 100%;
+  animation: scroll 25s linear infinite;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
