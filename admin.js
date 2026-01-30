@@ -1,35 +1,16 @@
-async function saveData() {
-  const data = await fetch("prices.json").then(r => r.json());
+import { db } from "./firebase.js";
+import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  data.prices.gold24.today = +gold24Today.value;
-  data.prices.gold24.yesterday = +gold24Yesterday.value;
-
-  data.prices.gold22.today = +gold22Today.value;
-  data.prices.gold22.yesterday = +gold22Yesterday.value;
-
-  data.prices.silver.today = +silverToday.value;
-  data.prices.silver.yesterday = +silverYesterday.value;
-
-  data.prices.copper.today = +copperToday.value;
-  data.prices.copper.yesterday = +copperYesterday.value;
-
-  data.ticker.enabled = tickerEnabled.checked;
-  data.ticker.items.gold24 = tickGold24.checked;
-  data.ticker.items.gold22 = tickGold22.checked;
-  data.ticker.items.silver = tickSilver.checked;
-  data.ticker.items.copper = tickCopper.checked;
-  data.ticker.items.nifty = tickNifty.checked;
-  data.ticker.items.sensex = tickSensex.checked;
-  data.ticker.items.bitcoin = tickBitcoin.checked;
-
-  data.meta.lastUpdated = new Date().toISOString();
-
-  alert(
-    "IMPORTANT:\n\nGitHub Pages cannot auto-write files.\n\n" +
-    "Next step:\n" +
-    "1. Copy updated values\n" +
-    "2. Paste them into prices.json\n" +
-    "3. Commit\n\n" +
-    "Phase 2 will automate this."
-  );
+async function update(asset, value) {
+  await updateDoc(doc(db, "prices", asset), {
+    today: Number(value)
+  });
 }
+
+window.save = async () => {
+  await update("gold24", gold24.value);
+  await update("gold22", gold22.value);
+  await update("silver", silver.value);
+  await update("copper", copper.value);
+  alert("Prices updated");
+};
