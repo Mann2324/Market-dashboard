@@ -18,7 +18,8 @@ async function loadPrices() {
 
     snap.forEach(doc => {
       const d = doc.data();
-      const diff = d.today - d.yesterday;
+      const diff = d.today;
+      const diff =  d.yesterday;
       const cls = diff >= 0 ? "up" : "down";
 
       // Cards
