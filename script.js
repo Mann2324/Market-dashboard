@@ -93,22 +93,98 @@ async function loadIndianIndices() {
 // Load once + refresh every 5 minutes
 loadIndianIndices();
 setInterval(loadIndianIndices, 300000);
-.chart-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+/* ---------------- 7 DAY CHART ---------------- */
+
+let chartInstance = null;
+
+async function loadChart(asset) {
+  let labels = [];
+  let prices = [];
+
+  try {
+    if (asset === "bitcoin" || asset === "ethereum" || asset === "silver") {
+      const res = await fetch(
+        `https://api.coingecko.com/api/v3/coins/${asset}/market_chart?vs_currency=inr&days=7`
+      );
+      const data = await res.json();
+
+      data.prices.forEach(item => {
+        const date = new Date(item[0]);
+        labels.push(date.toLocaleDateString("en-IN"));
+        prices.push(item[1]);
+      });
+    }
+
+    if (asset === "sensex") {
+      const res = await fetch(
+        "https://query1.finance.yahoo.com/v8/finance/chart/%5EBSESN?interval=1d&range=7d"
+      );
+      const data = await res.json();
+      const timestamps = data.chart.result[0].timestamp;
+      const values = data.chart.result[0].indicators.quote[0].close;
+
+      timestamps.forEach((t, i) => {
+        labels.push(new Date(t * 1000).toLocaleDateString("en-IN"));
+        prices.push(values[i]);
+      });
+    }
+
+    if (asset === "nifty") {
+      const res = await fetch(
+        "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=7d"
+      );
+      const data = await res.json();
+      const timestamps = data.chart.result[0].timestamp;
+      const values = data.chart.result[0].indicators.quote[0].close;
+
+      timestamps.forEach((t, i) => {
+        labels.push(new Date(t * 1000).toLocaleDateString("en-IN"));
+        prices.push(values[i]);
+      });
+    }
+
+    renderChart(labels, prices, asset.toUpperCase());
+
+  } catch (err) {
+    console.warn("Chart load failed", err);
+  }
 }
 
-.chart-tabs button {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: none;
-  background: #3b82f6;
-  color: white;
-  font-size: 13px;
-  cursor: pointer;
+function renderChart(labels, data, label) {
+  const ctx = document.getElementById("priceChart").getContext("2d");
+
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+
+  chartInstance = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: label,
+        data: data,
+        borderColor: "#3b82f6",
+        tension: 0.4,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        x: { display: true },
+        y: { display: true }
+      }
+    }
+  });
 }
+
+// Load default chart
+loadChart("bitcoin");
+
 
 body.dark .chart-tabs button {
   background: #2563eb;
