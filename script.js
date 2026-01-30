@@ -20,12 +20,15 @@ toggleBtn.addEventListener("click", () => {
 async function loadCryptoPrices() {
   try {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=inr&include_24hr_change=true"
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,silver&vs_currencies=inr&include_24hr_change=true"
+"
     );
     const data = await res.json();
 
     updatePrice("Bitcoin", data.bitcoin.inr, data.bitcoin.inr_24h_change);
     updatePrice("Ethereum", data.ethereum.inr, data.ethereum.inr_24h_change);
+    updatePrice("Silver", data.silver.inr, data.silver.inr_24h_change);
+    
   } catch (err) {
     console.error("Crypto fetch error", err);
   }
