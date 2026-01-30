@@ -5,7 +5,21 @@
   <title>21million — Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    <body>
+<script>
+  const ADMIN_PASSWORD = "21million@admin"; // change this
+
+  const entered = prompt("Enter Admin Password");
+  if (entered !== ADMIN_PASSWORD) {
+    alert("Access Denied");
+    document.body.innerHTML = "";
+    throw new Error("Unauthorized access");
+  }
+</script>
+
+<!-- rest of your admin.html content follows -->
+    
+    {
       font-family: system-ui, sans-serif;
       background:#0b1220;
       color:#e5e7eb;
