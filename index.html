@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>21million</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">21million</div>
+  </header>
+
+  <!-- MOVING TICKER -->
+  <div id="tickerWrapper" class="ticker-wrapper">
+    <div id="ticker" class="ticker"></div>
+  </div>
+
+  <!-- MAIN SECTION -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Bullion Overview</h2>
+      <div class="meta">
+        <span id="marketStatus"></span>
+        ·
+        <span id="lastUpdated"></span>
+      </div>
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Unit</th>
+          <th>Today</th>
+          <th>Prev</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody id="priceTableBody">
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Prices are indicative. Actual rates may vary.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
