@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e5e7eb;
+}
+
+/* HEADER */
+.header {
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* TICKER */
+.ticker-wrapper {
+  overflow: hidden;
+  background: #020617;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 10px 0;
+  animation: move 25s linear infinite;
+  font-size: 14px;
+}
+
+@keyframes move {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker span {
+  margin-right: 40px;
+}
+
+.up { color: #22c55e; }
+.down { color: #ef4444; }
+
+/* SECTION */
+.section {
+  padding: 20px 16px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.section-head h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.meta {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* TABLE */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.price-table th {
+  text-align: left;
+  font-size: 12px;
+  color: #94a3b8;
+  padding-bottom: 8px;
+}
+
+.price-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* FOOTER */
+.footer {
+  padding: 16px;
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+}
