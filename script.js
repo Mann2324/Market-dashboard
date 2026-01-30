@@ -1,3 +1,8 @@
+document.body.insertAdjacentHTML(
+  "afterbegin",
+  "<div style='color:red;padding:10px'>JS LOADED</div>"
+);
+
 import { db } from "./firebase.js";
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
