@@ -224,4 +224,33 @@ async function loadMarketNews() {
 // Load once + refresh every 10 minutes
 loadMarketNews();
 setInterval(loadMarketNews, 600000);
+/* ---------------- LIVE GOLD PRICE ---------------- */
+
+const GOLD_API_KEY = "goldapi-c1v6w5sml0pd769-io";
+
+async function loadGoldPrice() {
+  try {
+    const res = await fetch("https://www.goldapi.io/api/XAU/INR", {
+      headers: {
+        "x-access-token": GOLD_API_KEY
+      }
+    });
+
+    const data = await res.json();
+
+    // Gold price per ounce → convert to per gram
+    const pricePerGram = data.price / 31.1035;
+    const changePercent = data.ch;
+
+    updatePrice("Gold", pricePerGram, changePercent);
+
+  } catch (err) {
+    console.warn("Gold fetch failed", err);
+  }
+}
+
+// Load once + refresh every 5 minutes
+loadGoldPrice();
+setInterval(loadGoldPrice, 300000);
+
 
