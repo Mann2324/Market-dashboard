@@ -189,4 +189,39 @@ loadChart("bitcoin");
 body.dark .chart-tabs button {
   background: #2563eb;
       }
+/* ---------------- MARKET NEWS ---------------- */
+
+const NEWS_API_KEY = "2aca9d2047854078b8f326e718ad5dc7";
+
+async function loadMarketNews() {
+  try {
+    const res = await fetch(
+      `https://newsapi.org/v2/top-headlines?category=business&q=market OR crypto OR gold&language=en&pageSize=5&apiKey=${NEWS_API_KEY}`
+    );
+
+    const data = await res.json();
+    const newsList = document.getElementById("newsList");
+    newsList.innerHTML = "";
+
+    data.articles.forEach(article => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="${article.url}" target="_blank" style="text-decoration:none;color:inherit;">
+          <strong>${article.title}</strong><br/>
+          <span style="font-size:12px;color:gray;">
+            ${article.source.name}
+          </span>
+        </a>
+      `;
+      newsList.appendChild(li);
+    });
+
+  } catch (err) {
+    console.warn("News fetch failed", err);
+  }
+}
+
+// Load once + refresh every 10 minutes
+loadMarketNews();
+setInterval(loadMarketNews, 600000);
 
