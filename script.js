@@ -57,3 +57,39 @@ function updatePrice(name, price, change) {
 /* ---------------- AUTO REFRESH ---------------- */
 loadCryptoPrices();
 setInterval(loadCryptoPrices, 60000);
+/* ---------------- SENSEX & NIFTY ---------------- */
+
+async function loadIndianIndices() {
+  try {
+    // Sensex (^BSESN)
+    const sensexRes = await fetch(
+      "https://query1.finance.yahoo.com/v8/finance/chart/%5EBSESN?interval=1d&range=1d"
+    );
+    const sensexData = await sensexRes.json();
+    const sensexPrice =
+      sensexData.chart.result[0].meta.regularMarketPrice;
+    const sensexChange =
+      sensexData.chart.result[0].meta.regularMarketChangePercent;
+
+    updatePrice("Sensex", sensexPrice, sensexChange);
+
+    // Nifty (^NSEI)
+    const niftyRes = await fetch(
+      "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?interval=1d&range=1d"
+    );
+    const niftyData = await niftyRes.json();
+    const niftyPrice =
+      niftyData.chart.result[0].meta.regularMarketPrice;
+    const niftyChange =
+      niftyData.chart.result[0].meta.regularMarketChangePercent;
+
+    updatePrice("Nifty", niftyPrice, niftyChange);
+
+  } catch (err) {
+    console.warn("Index data unavailable", err);
+  }
+}
+
+// Load once + refresh every 5 minutes
+loadIndianIndices();
+setInterval(loadIndianIndices, 300000);
