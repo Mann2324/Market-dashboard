@@ -5,13 +5,13 @@
   <title>21million</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Font Awesome (modern icons) -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
-  <!-- Chart.js (for later use) -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <link rel="stylesheet" href="style.css" />
@@ -21,63 +21,41 @@
   <!-- Header -->
   <header class="header">
     <div class="brand">21million</div>
-    <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+    <button id="themeToggle" class="icon-btn">
       <i class="fa-solid fa-moon"></i>
     </button>
   </header>
 
-  <!-- Market Cards -->
+  <!-- Cards -->
   <section class="cards">
-    <div class="card">
-      <div class="label">Gold</div>
-      <div class="price">₹ --</div>
-    </div>
-    <div class="card">
-  <div class="label">Silver</div>
-  <div class="price">₹ --</div>
-    </div>
-    <div class="card">
-      <div class="label">Bitcoin</div>
-      <div class="price">₹ --</div>
-    </div>
-    <div class="card">
-      <div class="label">Ethereum</div>
-      <div class="price">₹ --</div>
-    </div>
-    <div class="card">
-      <div class="label">Sensex</div>
-      <div class="price">--</div>
-    </div>
-    <div class="card">
-      <div class="label">Nifty</div>
-      <div class="price">--</div>
-    </div>
+    <div class="card"><div class="label">Gold</div><div class="price skeleton"></div></div>
+    <div class="card"><div class="label">Silver</div><div class="price skeleton"></div></div>
+    <div class="card"><div class="label">Bitcoin</div><div class="price skeleton"></div></div>
+    <div class="card"><div class="label">Ethereum</div><div class="price skeleton"></div></div>
+    <div class="card"><div class="label">Sensex</div><div class="price skeleton"></div></div>
+    <div class="card"><div class="label">Nifty</div><div class="price skeleton"></div></div>
   </section>
 
-  <!-- Chart Placeholder -->
+  <!-- Chart -->
   <section class="chart-section">
-  <h2>7 Day Trend</h2>
-
-  <div class="chart-tabs">
-    <button onclick="loadChart('bitcoin')">Bitcoin</button>
-    <button onclick="loadChart('ethereum')">Ethereum</button>
-    <button onclick="loadChart('silver')">Silver</button>
-    <button onclick="loadChart('sensex')">Sensex</button>
-    <button onclick="loadChart('nifty')">Nifty</button>
-  </div>
-
-  <canvas id="priceChart"></canvas>
+    <h2>7 Day Trend</h2>
+    <div class="chart-tabs">
+      <button onclick="loadChart('bitcoin')">Bitcoin</button>
+      <button onclick="loadChart('ethereum')">Ethereum</button>
+      <button onclick="loadChart('silver')">Silver</button>
+      <button onclick="loadChart('sensex')">Sensex</button>
+      <button onclick="loadChart('nifty')">Nifty</button>
+    </div>
+    <canvas id="priceChart"></canvas>
   </section>
 
-
-  <!-- News Placeholder -->
+  <!-- News -->
   <section class="news">
-  <h2>Market News</h2>
-  <ul id="newsList">
-    <li>Loading latest news...</li>
-  </ul>
-</section>
-
+    <h2>Market News</h2>
+    <ul id="newsList">
+      <li>Loading latest news...</li>
+    </ul>
+  </section>
 
   <script src="script.js"></script>
 </body>
