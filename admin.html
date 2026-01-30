@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>21million — Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background:#0b1220;
+      color:#e5e7eb;
+      padding:20px;
+    }
+    h1 { font-size:20px; margin-bottom:6px; }
+    .section { margin-top:24px; }
+    label { display:block; margin-top:12px; font-size:14px; }
+    input[type="number"] {
+      width:100%;
+      padding:10px;
+      margin-top:6px;
+      background:#111827;
+      border:1px solid #1f2933;
+      color:#fff;
+      border-radius:8px;
+    }
+    .row { display:flex; gap:10px; }
+    .row > div { flex:1; }
+    button {
+      margin-top:20px;
+      padding:12px;
+      width:100%;
+      background:#3b82f6;
+      border:none;
+      color:white;
+      font-size:15px;
+      border-radius:10px;
+    }
+    .checkbox label {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:10px;
+    }
+    small { color:#9ca3af; }
+  </style>
+</head>
+<body>
+
+<h1>21million — Admin Panel</h1>
+<small>Update bullion prices & control ticker</small>
+
+<div class="section">
+  <h3>Prices (India Reference)</h3>
+
+  <label>Gold 24K (10g)</label>
+  <div class="row">
+    <div><input id="gold24Today" type="number" placeholder="Today"></div>
+    <div><input id="gold24Yesterday" type="number" placeholder="Yesterday"></div>
+  </div>
+
+  <label>Gold 22K (10g)</label>
+  <div class="row">
+    <div><input id="gold22Today" type="number"></div>
+    <div><input id="gold22Yesterday" type="number"></div>
+  </div>
+
+  <label>Silver (1kg)</label>
+  <div class="row">
+    <div><input id="silverToday" type="number"></div>
+    <div><input id="silverYesterday" type="number"></div>
+  </div>
+
+  <label>Copper (1kg)</label>
+  <div class="row">
+    <div><input id="copperToday" type="number"></div>
+    <div><input id="copperYesterday" type="number"></div>
+  </div>
+</div>
+
+<div class="section checkbox">
+  <h3>Ticker Controls</h3>
+
+  <label><input type="checkbox" id="tickerEnabled"> Enable Ticker</label>
+
+  <label><input type="checkbox" id="tickGold24"> Gold 24K</label>
+  <label><input type="checkbox" id="tickGold22"> Gold 22K</label>
+  <label><input type="checkbox" id="tickSilver"> Silver</label>
+  <label><input type="checkbox" id="tickCopper"> Copper</label>
+  <label><input type="checkbox" id="tickNifty"> Nifty</label>
+  <label><input type="checkbox" id="tickSensex"> Sensex</label>
+  <label><input type="checkbox" id="tickBitcoin"> Bitcoin</label>
+</div>
+
+<button onclick="saveData()">Save & Update</button>
+
+<script src="admin.js"></script>
+</body>
+</html>
