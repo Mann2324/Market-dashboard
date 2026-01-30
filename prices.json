@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "lastUpdated": "",
+    "marketStatus": "open"
+  },
+  "prices": {
+    "gold24": { "today": 0, "yesterday": 0, "unit": "10g" },
+    "gold22": { "today": 0, "yesterday": 0, "unit": "10g" },
+    "silver": { "today": 0, "yesterday": 0, "unit": "1kg" },
+    "copper": { "today": 0, "yesterday": 0, "unit": "1kg" }
+  },
+  "ticker": {
+    "enabled": true,
+    "items": {
+      "gold24": true,
+      "gold22": true,
+      "silver": true,
+      "copper": true,
+      "nifty": true,
+      "sensex": true,
+      "bitcoin": true
+    }
+  }
+}
