@@ -93,3 +93,24 @@ async function loadIndianIndices() {
 // Load once + refresh every 5 minutes
 loadIndianIndices();
 setInterval(loadIndianIndices, 300000);
+.chart-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.chart-tabs button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+body.dark .chart-tabs button {
+  background: #2563eb;
+      }
+
