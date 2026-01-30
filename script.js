@@ -41,6 +41,7 @@ function updatePrice(name, price, change) {
   cards.forEach(card => {
     if (card.querySelector(".label").innerText === name) {
       const priceEl = card.querySelector(".price");
+      priceEl.classList.remove("skeleton");
       const arrow = change >= 0 ? "▲" : "▼";
       const color = change >= 0 ? "#16a34a" : "#dc2626";
 
